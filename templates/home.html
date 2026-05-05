@@ -1,0 +1,83 @@
+{% extends "layout.html" %} {% block content %}
+
+<!-- ─── ISSUE HEADER ─── -->
+<div class="issue-header">
+  <p class="issue-date">Tuesday, {{ current_date }} · Latest Edition</p>
+  <h1>Today's Reading</h1>
+  <p class="issue-subline">
+    Hand-picked essays, dispatches &amp; longform stories.
+  </p>
+</div>
+
+<!-- ─── ORNAMENTAL DIVIDER ─── -->
+<div class="ornamental-rule"><span>Latest Posts</span></div>
+
+<!-- ─── POSTS FEED ─── -->
+<div class="posts-feed">
+  {% for post in posts %} {# First post gets the featured treatment #} {% if
+  loop.first %}
+  <article class="post-card featured">
+    <div class="post-number">№ {{ "%02d" | format(loop.index) }}</div>
+    <span class="post-category">Featured</span>
+    <h2 class="post-title">
+      <a href="#">{{ post.title }}</a>
+    </h2>
+    <p class="post-excerpt">{{ post.content | truncate(200) }}</p>
+    <div class="byline">
+      <img
+        class="byline-avatar"
+        src="{{ url_for('static', path='profile_pics/default.jpg') }}"
+        alt="{{ post.author }}'s avatar"
+        width="36"
+        height="36"
+        loading="lazy"
+      />
+      <div class="byline-meta">
+        <a href="#" class="byline-author">{{ post.author }}</a>
+        <span class="byline-date">{{ post.date_posted }}</span>
+      </div>
+      <a href="#" class="read-more">Continue reading</a>
+    </div>
+  </article>
+
+  {% else %}
+  <article class="post-card">
+    <div class="post-number">№ {{ "%02d" | format(loop.index) }}</div>
+    <span class="post-category">Essay</span>
+    <h2 class="post-title">
+      <a href="#">{{ post.title }}</a>
+    </h2>
+    <p class="post-excerpt">{{ post.content | truncate(160) }}</p>
+    <div class="byline">
+      <img
+        class="byline-avatar"
+        src="{{ url_for('static', path='profile_pics/default.jpg') }}"
+        alt="{{ post.author }}'s avatar"
+        width="36"
+        height="36"
+        loading="lazy"
+      />
+      <div class="byline-meta">
+        <a href="#" class="byline-author">{{ post.author }}</a>
+        <span class="byline-date">{{ post.date_posted }}</span>
+      </div>
+      <a href="#" class="read-more">Continue reading</a>
+    </div>
+  </article>
+  {% endif %} {% else %}
+  <!-- Empty state -->
+  <div class="ornamental-rule"><span>No posts yet</span></div>
+  <p
+    style="
+      font-style: italic;
+      color: var(--muted);
+      text-align: center;
+      padding: 2rem 0;
+    "
+  >
+    The first dispatch is being written. Check back soon.
+  </p>
+  {% endfor %}
+</div>
+
+{% endblock content %}
