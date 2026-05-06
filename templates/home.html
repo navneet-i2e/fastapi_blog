@@ -20,7 +20,7 @@
     <div class="post-number">№ {{ "%02d" | format(loop.index) }}</div>
     <span class="post-category">Featured</span>
     <h2 class="post-title">
-      <a href="#">{{ post.title }}</a>
+      <a href="{{ url_for('post_page', post_id=post.id) }}">{{ post.title }}</a>
     </h2>
     <p class="post-excerpt">{{ post.content | truncate(200) }}</p>
     <div class="byline">
@@ -36,7 +36,9 @@
         <a href="#" class="byline-author">{{ post.author }}</a>
         <span class="byline-date">{{ post.date_posted }}</span>
       </div>
-      <a href="#" class="read-more">Continue reading</a>
+      <a href="{{ url_for('post_page', post_id=post.id) }}" class="read-more"
+        >Continue reading</a
+      >
     </div>
   </article>
 
@@ -45,7 +47,7 @@
     <div class="post-number">№ {{ "%02d" | format(loop.index) }}</div>
     <span class="post-category">Essay</span>
     <h2 class="post-title">
-      <a href="#">{{ post.title }}</a>
+      <a href="{{ url_for('post_page', post_id=post.id) }}">{{ post.title }}</a>
     </h2>
     <p class="post-excerpt">{{ post.content | truncate(160) }}</p>
     <div class="byline">
@@ -61,7 +63,9 @@
         <a href="#" class="byline-author">{{ post.author }}</a>
         <span class="byline-date">{{ post.date_posted }}</span>
       </div>
-      <a href="#" class="read-more">Continue reading</a>
+      <a href="{{ url_for('post_page', post_id=post.id) }}" class="read-more"
+        >Continue reading</a
+      >
     </div>
   </article>
   {% endif %} {% else %}

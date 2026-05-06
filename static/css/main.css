@@ -695,3 +695,59 @@ footer.site-footer {
     align-items: flex-start;
   }
 }
+/* ─── FULL POST ─── */
+.post-full {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.post-content {
+  font-size: 1.05rem;
+  line-height: 1.9;
+  color: var(--ink);
+}
+
+.post-content p {
+  margin-bottom: 1.4rem;
+}
+
+.post-content h2,
+.post-content h3 {
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.post-content blockquote {
+  border-left: 3px solid var(--accent);
+  padding-left: 1rem;
+  color: var(--steel);
+  font-style: italic;
+  margin: 1.5rem 0;
+}
+
+.post-actions {
+  margin-top: 2.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--rule);
+  display: flex;
+  gap: 0.5rem;
+}
+/* ─── ERROR PAGE ─── */
+.error-block {
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.error-message {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--steel);
+  font-style: italic;
+  margin-bottom: 1.75rem;
+}
+
+.error-actions {
+  margin-top: 1rem;
+}

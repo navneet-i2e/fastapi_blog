@@ -1,0 +1,63 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<!-- ─── ARTICLE HEADER ─── -->
+<header class="issue-header">
+  <p class="issue-date">{{ post.date_posted }}</p>
+  <h1>{{ post.title }}</h1>
+  <p class="issue-subline">By {{ post.author }}</p>
+</header>
+
+<!-- ─── ARTICLE BODY ─── -->
+<article class="post-full">
+
+  <!-- Byline -->
+  <div class="byline mb-4">
+    <img
+      class="byline-avatar"
+      src="{{ url_for('static', path='profile_pics/default.jpg') }}"
+      alt="{{ post.author }}'s avatar"
+    />
+    <div class="byline-meta">
+      <span class="byline-author">{{ post.author }}</span>
+      <span class="byline-date">{{ post.date_posted }}</span>
+    </div>
+  </div>
+
+  <!-- Content -->
+  <div class="post-content">
+    {{ post.content }}
+  </div>
+
+  <!-- Actions -->
+  <div class="post-actions">
+    <a class="btn-ghost" href="#">Edit</a>
+    <button class="btn-ghost" data-bs-toggle="modal" data-bs-target="#deleteModal">
+      Delete
+    </button>
+  </div>
+
+</article>
+
+<!-- ─── DELETE MODAL ─── -->
+<div class="modal fade" id="deleteModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5>Delete Post?</h5>
+        <button class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <form action="#">
+        <div class="modal-body">
+          This action cannot be undone.
+        </div>
+        <div class="modal-footer">
+          <button class="btn-ghost" data-bs-dismiss="modal">Cancel</button>
+          <button class="btn-solid">Delete</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

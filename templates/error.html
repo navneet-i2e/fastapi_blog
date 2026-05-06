@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<!-- ─── ERROR HEADER ─── -->
+<header class="issue-header">
+  <p class="issue-date">System Dispatch</p>
+  <h1>Error {{ status_code }}</h1>
+  <p class="issue-subline">Something has gone awry.</p>
+</header>
+
+<!-- ─── ORNAMENTAL RULE ─── -->
+<div class="ornamental-rule"><span>Notice</span></div>
+
+<!-- ─── ERROR BODY ─── -->
+<section class="error-block">
+  <p class="error-message">
+    {{ message }}
+  </p>
+
+  <div class="error-actions">
+    <a href="{{ url_for('home') }}" class="btn-solid">Return Home</a>
+  </div>
+</section>
+
+{% endblock content %}
